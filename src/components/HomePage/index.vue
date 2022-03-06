@@ -1,11 +1,21 @@
 <template>
-    <div>1111111</div>
+  <div>{{store.state.music.music}}</div>
 </template>
-  
-<script setup lang='ts'>
-  
+
+<script lang="ts" setup>
+import { isReactive } from "vue";
+import { useStore } from "vuex";
+
+const store = useStore();
+
+store.dispatch({
+  type: "music/getCurrentPlayMusic",
+  id: 1824020871,
+});
+
+console.log(isReactive(store.state.music.music));
+console.log(store.state.music.music)
 </script>
-  
-<style>
-  
+
+<style scoped>
 </style>
