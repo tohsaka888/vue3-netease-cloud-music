@@ -7,7 +7,7 @@ type Music = {
 };
 
 type State = {
-  music: Music;
+  currentMusicInfo: Music;
 };
 
 type RootState = undefined

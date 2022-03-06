@@ -4,7 +4,8 @@ import { Music, RootState, State } from "../types";
 
 // initialState
 const state: State = {
-  music: {
+  // 当前播放音乐的信息
+  currentMusicInfo: {
     name: "",
     id: -1,
     albums: [],
@@ -15,18 +16,22 @@ const state: State = {
 
 // mutations
 const mutations: MutationTree<State> = {
-  setCurrentPlayMusicInfo(state, payload: { song: Music }) {
-    state.music = payload.song;
+  // 设置当前音乐信息
+  setCurrentMusicInfo(state, payload: { song: Music }) {
+    state.currentMusicInfo = payload.song;
   },
 };
 
 // actions
 const actions: ActionTree<State, RootState> = {
-  async getCurrentPlayMusic({ commit }, payload: { id: number }) {
-    const res = await fetch(`${baseUrl}/song/detail?ids=${payload.id}`);
+  // 获取当前播放音乐信息
+  async getCurrentMusicInfo({ commit }, payload: { id: number }) {
+    const res = await fetch(`${baseUrl}/song/detail?ids=${payload.id}`, {
+      mode: "cors",
+    });
     const data: { songs: Music[]; code: number } = await res.json();
     if (data.songs) {
-      commit({ type: "setCurrentPlayMusicInfo", song: data.songs[0] });
+      commit({ type: "setCurrentMusicInfo", song: data.songs[0] });
     }
   },
 };

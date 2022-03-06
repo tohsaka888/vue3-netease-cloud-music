@@ -1,9 +1,9 @@
 import { createStore } from "vuex";
-import music from "./modules/music";
+import currentMusic from "./modules/CurrentMusic";
 
 const store = createStore({
   modules: {
-    music,
+    currentMusic,
   }
 });
 
