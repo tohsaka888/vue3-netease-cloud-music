@@ -1,20 +1,23 @@
 <template>
-  <div>{{store.state.music.music}}</div>
+  <div>{{ currentMusicInfo }}</div>
 </template>
 
 <script lang="ts" setup>
-import { isReactive } from "vue";
+import { isReactive, toRef } from "vue";
 import { useStore } from "vuex";
 
 const store = useStore();
 
 store.dispatch({
-  type: "music/getCurrentPlayMusic",
+  type: "currentMusic/getCurrentMusicInfo",
   id: 1824020871,
 });
 
-console.log(isReactive(store.state.music.music));
-console.log(store.state.music.music)
+
+console.log(isReactive(store.state.currentMusic.currentMusicInfo));
+
+const currentMusicInfo = toRef(store.state.currentMusic, 'currentMusicInfo')
+
 </script>
 
 <style scoped>
