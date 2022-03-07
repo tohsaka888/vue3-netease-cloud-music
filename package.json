@@ -9,7 +9,11 @@
     "start": "vite"
   },
   "dependencies": {
-    "ant-design-vue": "^2.2.8",
+    "@element-plus/icons-vue": "^1.1.0",
+    "element-plus": "^2.0.5",
+    "moment": "^2.29.1",
+    "unplugin-auto-import": "^0.6.1",
+    "unplugin-vue-components": "^0.17.21",
     "vue": "^3.2.25",
     "vue-router": "4",
     "vuex": "^4.0.2"
