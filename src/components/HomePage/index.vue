@@ -5,6 +5,7 @@
 <script lang="ts" setup>
 import { isReactive, toRef } from "vue";
 import { useStore } from "vuex";
+import { State } from "../../../store/types";
 
 const store = useStore();
 
@@ -13,12 +14,10 @@ store.dispatch({
   id: 1824020871,
 });
 
-
-console.log(isReactive(store.state.currentMusic.currentMusicInfo));
-
-const currentMusicInfo = toRef(store.state.currentMusic, 'currentMusicInfo')
+const currentMusicInfo = toRef<State, keyof(State)>(store.state.currentMusic, 'currentMusicInfo')
 
 </script>
 
 <style scoped>
+
 </style>
