@@ -55,7 +55,11 @@ const playMusic = (id: number) => {
     type: "currentMusic/getCurrentMusicUrl",
     id: id,
     options: {
-      mode: 'cors'
+      mode: 'cors',
+      headers: {
+        "Content-Type":
+          "application/json;charset=utf-8"
+      }
     }
   });
 }
