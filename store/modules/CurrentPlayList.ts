@@ -24,9 +24,9 @@ const mutations: MutationTree<PlaylistState> = {
 const actions: ActionTree<PlaylistState, RootState> = {
   async getCurrentPlaylistInfo(
     { commit },
-    payload: { id: number; options?: RequestInit }
+    {id, options}: { id: number; options?: RequestInit }
   ) {
-    const res = await fetch(`${baseUrl}/playlist/detail?id=${payload.id}`, payload.options);
+    const res = await fetch(`${baseUrl}/playlist/detail?id=${id}`, options);
     const data: { code: number; playlist: Playlist } = await res.json();
     if (data.code === 200) {
       commit({ type: "setCurrentPlaylistInfo", playlist: data.playlist });
