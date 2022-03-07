@@ -9,6 +9,7 @@ declare module 'vue' {
     ElTable: typeof import('element-plus/es')['ElTable']
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     HomePage: typeof import('./src/components/HomePage/index.vue')['default']
+    MusicController: typeof import('./src/components/MusicController/index.vue')['default']
     My: typeof import('./src/components/My/index.vue')['default']
     Navbar: typeof import('./src/components/Navbar/index.vue')['default']
     Playlist: typeof import('./src/components/Playlist/index.vue')['default']
