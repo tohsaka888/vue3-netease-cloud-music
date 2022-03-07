@@ -9,6 +9,7 @@
     "start": "vite"
   },
   "dependencies": {
+    "ant-design-vue": "^2.2.8",
     "vue": "^3.2.25",
     "vue-router": "4",
     "vuex": "^4.0.2"
