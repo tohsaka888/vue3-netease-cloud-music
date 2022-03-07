@@ -39,7 +39,7 @@ import { VideoPlay, VideoPause } from '@element-plus/icons-vue'
 
 const store = useStore()
 
-store.dispatch({ type: 'currentPlaylist/getCurrentPlaylistInfo', id: 7165353697, options: { method: 'POST' } })
+store.dispatch({ type: 'currentPlaylist/getCurrentPlaylistInfo', id: 7165353697, options: { mode: 'cors' } })
 const playlist = toRef<PlaylistState, keyof (PlaylistState)>(store.state.currentPlaylist, "currentPlaylistInfo")
 
 const getArtistsName = (artists: { name: string }[]) => {
