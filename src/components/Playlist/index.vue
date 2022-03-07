@@ -3,10 +3,10 @@
   <div>{{ playlist.id }}</div>
   <el-table :data="playlist.tracks" stripe :row-key="row => row.id">
     <el-table-column type="index" label="序号" width="100">
-      <template #default="{ $index }">
+      <template #default="{ row, $index }">
         <div class="flex" style="width: 60%;">
           <span style="margin-right: 8px;">{{ $index + 1 }}</span>
-          <el-icon>
+          <el-icon style="cursor: pointer;" @click="playMusic(row.id)">
             <video-play size="30" />
           </el-icon>
         </div>
@@ -48,6 +48,13 @@ const getArtistsName = (artists: { name: string }[]) => {
     arr.push(item.name)
   })
   return arr.join('/')
+}
+
+const playMusic = (id: number) => {
+  store.dispatch({
+    type: "currentMusic/getCurrentMusicUrl",
+    id: id,
+  });
 }
 
 </script>
