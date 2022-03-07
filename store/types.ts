@@ -1,7 +1,7 @@
 type Music = {
   name: string;
   id: number;
-  url: string;
+  url?: string;
   artists?: any[];
   albums?: any[];
 };
@@ -10,6 +10,18 @@ type State = {
   currentMusicInfo: Music;
 };
 
-type RootState = undefined
+type Playlist = {
+  name: string;
+  coverImgUrl: string;
+  tracks: Music[];
+  tags: string[];
+  id: number;
+};
 
-export type { State, Music, RootState };
+type PlaylistState = {
+  currentPlaylistInfo: Playlist;
+};
+
+type RootState = undefined;
+
+export type { State, Music, RootState, Playlist, PlaylistState };
