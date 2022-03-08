@@ -1,5 +1,5 @@
 import { ActionTree, Module, MutationTree } from "vuex";
-import { baseUrl } from "../../config/baseUrl";
+import { baseUrl, realIP } from "../../config/baseUrl";
 import { Playlist, PlaylistState, RootState } from "../types";
 
 // inititalState
@@ -26,7 +26,7 @@ const actions: ActionTree<PlaylistState, RootState> = {
     { commit },
     {id, options}: { id: number; options?: RequestInit }
   ) {
-    const res = await fetch(`${baseUrl}/playlist/detail?id=${id}`, options);
+    const res = await fetch(`${baseUrl}/playlist/detail?id=${id}${realIP}`, options);
     const data: { code: number; playlist: Playlist } = await res.json();
     if (data.code === 200) {
       commit({ type: "setCurrentPlaylistInfo", playlist: data.playlist });
