@@ -1,6 +1,11 @@
 <template>
-  <div>{{ playlist.name }}</div>
-  <div>{{ playlist.id }}</div>
+  <div class="flex" style="justify-content: flex-start;">
+    <el-image class="playlist-cover" :src="playlist.coverImgUrl" />
+    <div class="playlist-info">
+      <h1>{{ playlist.name }}</h1>
+      <h5>{{ playlist.id }}</h5>
+    </div>
+  </div>
   <el-table :data="playlist.tracks" stripe :row-key="row => row.id" border>
     <el-table-column type="index" label="序号" width="100">
       <template #default="{ row, $index }">
@@ -87,6 +92,17 @@ const playMusic = async (song: Music) => {
 .flex {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
+}
+
+.playlist-cover {
+  width: 200px;
+  min-width: 200px;
+  aspect-ratio: 1/1;
+  box-shadow: 0px 0px 20px 10px #cecece;
+}
+
+.playlist-info {
+  margin-left: 24px;
 }
 </style>
