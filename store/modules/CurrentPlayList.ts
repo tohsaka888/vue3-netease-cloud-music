@@ -1,4 +1,4 @@
-import { ActionTree, Module, MutationTree } from "vuex";
+import { ActionTree, GetterTree, Module, MutationTree } from "vuex";
 import { baseUrl, realIP } from "../../config/baseUrl";
 import { Playlist, PlaylistState, RootState } from "../types";
 
@@ -28,6 +28,27 @@ const mutations: MutationTree<PlaylistState> = {
   },
 };
 
+// getters
+const getters: GetterTree<PlaylistState, RootState> = {
+  artists(state): (id: number) => string {
+    let artistsArr: { name: string }[] = [];
+    const { tracks } = state.currentPlaylistInfo;
+    return (id) => {
+      tracks.forEach((song) => {
+        if (song.id === id) {
+          if (song.ar) {
+            artistsArr = song.ar;
+          }
+          return false;
+        }
+      });
+      let arr: string[] = [];
+      artistsArr.map((ar) => arr.push(ar.name));
+      return arr.join("/");
+    };
+  },
+};
+
 // actions
 const actions: ActionTree<PlaylistState, RootState> = {
   async getCurrentPlaylistInfo(
@@ -50,4 +71,5 @@ export default {
   state,
   mutations,
   actions,
+  getters,
 } as Module<PlaylistState, RootState>;

@@ -8,8 +8,8 @@ const state: State = {
   currentMusicInfo: {
     name: "",
     id: -1,
-    albums: [],
-    artists: [],
+    al: { picUrl: "" },
+    ar: [],
     url: "",
     playStatus: false,
   },
