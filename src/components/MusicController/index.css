@@ -5,28 +5,48 @@
 }
 
 .slider {
-  flex: 15;
-  padding: 0px 12px;
+  flex: 13;
+}
+
+.xxl-slider {
+  flex: 13;
+}
+
+.xl-slider {
+  flex: 11;
+}
+
+.lg-slider {
+  flex: 9;
+}
+
+.md-slider {
+  flex: 7;
+}
+
+.sm-slider {
+  flex: 4;
 }
 
 .icon-area {
   flex: 2;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   background-color: transparent;
 }
 
 .icon-style {
   font-size: 30px;
-  color: rgb(253, 139, 131);
-  box-shadow: 0px 0px 18px 1px rgb(255, 180, 180);
+  color: rgb(226, 226, 226);
+  box-shadow: 0px 0px 10px 5px rgb(238, 233, 233);
   border-radius: 50%;
   background-color: transparent;
+  cursor: pointer;
 }
 
 .song-info {
-  flex: 4;
+  flex: 3;
   display: flex;
   align-items: center;
 }
@@ -37,8 +57,8 @@
 }
 
 .xxl-picture {
-  width: 70px;
-  min-width: 70px;
+  width: 65px;
+  min-width: 65px;
 }
 
 .xl-picture {
@@ -51,24 +71,32 @@
   min-width: 60px;
 }
 
+.md-picture {
+  width: 55px;
+  min-width: 55px;
+}
+
+.sm-picture {
+  width: 50px;
+  min-width: 50px;
+}
+
 .picture-main {
   aspect-ratio: 1/1;
   box-shadow: 2px 1px 15px 5px #999999;
 }
 
 .info-text {
-  margin-left: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  padding: 0 16px;
 }
 
 #music-name {
-  font-size: 1.1rem;
-}
-
-#music-name-main {
-  height: 42px;
-  max-height: 42px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font-size: 1rem;
 }
 
 #xxl-music-name {
@@ -81,6 +109,14 @@
 
 #lg-music-name {
   font-size: 14px;
+}
+
+#md-music-name {
+  font-size: 14px;
+}
+
+#sm-music-name {
+  font-size: 13px;
 }
 
 #artist {
