@@ -8,7 +8,7 @@
     @pause="onPause"
     @canplay="onCanPlay"
   />
-  <div class="flex">
+  <div class="flex music-controller">
     <div class="song-info">
       <el-image
         :src="currentMusicInfo.al?.picUrl"
