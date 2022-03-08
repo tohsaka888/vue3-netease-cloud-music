@@ -1,17 +1,22 @@
 <template>
-  <div>{{ playlist.name }}</div>
-  <div>{{ playlist.id }}</div>
+  <div class="flex" style="justify-content: flex-start;">
+    <el-image class="playlist-cover" :src="playlist.coverImgUrl" />
+    <div class="playlist-info">
+      <h1>{{ playlist.name }}</h1>
+      <h5>{{ playlist.id }}</h5>
+    </div>
+  </div>
   <el-table :data="playlist.tracks" stripe :row-key="row => row.id" border>
     <el-table-column type="index" label="序号" width="100">
       <template #default="{ row, $index }">
-        <div class="flex" style="width: 60%;">
-          <span style="margin-right: 8px;">{{ $index + 1 }}</span>
-          <el-icon style="cursor: pointer;" @click="playMusic(row)">
+        <div class="flex">
+          <span>{{ $index + 1 }}</span>
+          <el-icon style="cursor: pointer;" @click="playMusic(row)" :size="20">
             <template v-if="!row.playStatus">
-              <video-play :size="30" />
+              <video-play />
             </template>
             <template v-else>
-              <video-pause :size="30" />
+              <video-pause />
             </template>
           </el-icon>
         </div>
@@ -30,7 +35,11 @@
         <Ellipsis :text="getArtistsName(row.ar)" />
       </template>
     </el-table-column>
-    <el-table-column prop="name" label="专辑" />
+    <el-table-column label="专辑">
+      <template #default="{ row }">
+        <Ellipsis :text="row.al.name" />
+      </template>
+    </el-table-column>
   </el-table>
 </template>
   
@@ -83,6 +92,17 @@ const playMusic = async (song: Music) => {
 .flex {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
+}
+
+.playlist-cover {
+  width: 200px;
+  min-width: 200px;
+  aspect-ratio: 1/1;
+  box-shadow: 0px 0px 20px 10px #cecece;
+}
+
+.playlist-info {
+  margin-left: 24px;
 }
 </style>
