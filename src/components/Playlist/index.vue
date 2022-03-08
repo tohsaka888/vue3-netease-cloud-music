@@ -1,7 +1,7 @@
 <template>
   <div>{{ playlist.name }}</div>
   <div>{{ playlist.id }}</div>
-  <el-table :data="playlist.tracks" stripe :row-key="row => row.id">
+  <el-table :data="playlist.tracks" stripe :row-key="row => row.id" border>
     <el-table-column type="index" label="序号" width="100">
       <template #default="{ row, $index }">
         <div class="flex" style="width: 60%;">
@@ -65,6 +65,13 @@ const playMusic = async (song: Music) => {
         mode: 'cors',
       }
     });
+    // await store.dispatch({
+    //   type: "currentMusic/getCurrentMusicInfo",
+    //   id: song.id,
+    //   options: {
+    //     mode: 'cors',
+    //   }
+    // })
     store.commit({ type: 'currentMusic/setCurrentMusicInfo', song })
     store.commit({ type: 'currentPlaylist/setPlayStatus', id: song.id })
   }
