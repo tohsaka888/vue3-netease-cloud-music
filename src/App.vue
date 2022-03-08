@@ -8,5 +8,8 @@ import MusicController from './components/MusicController/index.vue';
   <MusicController />
 </template>
 
-<style scoped>
+<style>
+html body {
+  margin: 0px;
+}
 </style>
