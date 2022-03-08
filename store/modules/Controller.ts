@@ -16,6 +16,9 @@ const mutations: MutationTree<Controller> = {
   setCurrentTime(state, { currentTime }: { currentTime: number }) {
     state.currentTime = currentTime;
   },
+  setPlayStatus(state, { playStatus }: { playStatus: boolean }) {
+    state.playStatus = playStatus;
+  },
 };
 
 export default {
