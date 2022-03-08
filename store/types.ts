@@ -2,8 +2,8 @@ type Music = {
   name: string;
   id: number;
   url?: string;
-  artists?: any[];
-  albums?: any[];
+  ar?: {name: string}[];
+  al?: {picUrl: string};
   playStatus: boolean;
 };
 
@@ -23,6 +23,12 @@ type PlaylistState = {
   currentPlaylistInfo: Playlist;
 };
 
+type Controller = {
+  duration: number;
+  currentTime: number;
+  playStatus: boolean;
+}
+
 type RootState = undefined;
 
-export type { State, Music, RootState, Playlist, PlaylistState };
+export type { State, Music, RootState, Playlist, PlaylistState, Controller };
