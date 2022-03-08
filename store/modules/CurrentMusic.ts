@@ -11,6 +11,7 @@ const state: State = {
     albums: [],
     artists: [],
     url: "",
+    playStatus: false,
   },
 };
 
@@ -29,9 +30,12 @@ const mutations: MutationTree<State> = {
 const actions: ActionTree<State, RootState> = {
   // 获取当前播放音乐信息
   async getCurrentMusicInfo({ commit }, payload: { id: number }) {
-    const res = await fetch(`${baseUrl}/song/detail?ids=${payload.id}${realIP}`, {
-      mode: "cors",
-    });
+    const res = await fetch(
+      `${baseUrl}/song/detail?ids=${payload.id}${realIP}`,
+      {
+        mode: "cors",
+      }
+    );
     const data: { songs: Music[]; code: number } = await res.json();
     if (data.songs) {
       commit({ type: "setCurrentMusicInfo", song: data.songs[0] });

@@ -6,8 +6,13 @@
       <template #default="{ row, $index }">
         <div class="flex" style="width: 60%;">
           <span style="margin-right: 8px;">{{ $index + 1 }}</span>
-          <el-icon style="cursor: pointer;" @click="playMusic(row.id)">
-            <video-play size="30" />
+          <el-icon style="cursor: pointer;" @click="playMusic(row)">
+            <template v-if="!row.playStatus">
+              <video-play :size="30" />
+            </template>
+            <template v-else>
+              <video-pause :size="30" />
+            </template>
           </el-icon>
         </div>
       </template>
@@ -33,7 +38,7 @@
 import moment from 'moment'
 import { toRef } from 'vue';
 import { useStore } from 'vuex';
-import { PlaylistState } from '../../../store/types';
+import { Music, PlaylistState, State } from '../../../store/types';
 import Ellipsis from '../custom/Ellipsis.vue';
 import { VideoPlay, VideoPause } from '@element-plus/icons-vue'
 
@@ -41,6 +46,7 @@ const store = useStore()
 
 store.dispatch({ type: 'currentPlaylist/getCurrentPlaylistInfo', id: 7165353697, options: { mode: 'cors' } })
 const playlist = toRef<PlaylistState, keyof (PlaylistState)>(store.state.currentPlaylist, "currentPlaylistInfo")
+const currentMusicInfo = toRef<State, keyof (State)>(store.state.currentMusic, 'currentMusicInfo')
 
 const getArtistsName = (artists: { name: string }[]) => {
   let arr: string[] = []
@@ -50,18 +56,18 @@ const getArtistsName = (artists: { name: string }[]) => {
   return arr.join('/')
 }
 
-const playMusic = (id: number) => {
-  store.dispatch({
-    type: "currentMusic/getCurrentMusicUrl",
-    id: id,
-    options: {
-      mode: 'cors',
-      headers: {
-        "Content-Type":
-          "application/json;charset=utf-8"
+const playMusic = async (song: Music) => {
+  if (currentMusicInfo.value.id !== song.id) {
+    await store.dispatch({
+      type: "currentMusic/getCurrentMusicUrl",
+      id: song.id,
+      options: {
+        mode: 'cors',
       }
-    }
-  });
+    });
+    store.commit({ type: 'currentMusic/setCurrentMusicInfo', song })
+    store.commit({ type: 'currentPlaylist/setPlayStatus', id: song.id })
+  }
 }
 
 </script>

@@ -4,6 +4,7 @@ type Music = {
   url?: string;
   artists?: any[];
   albums?: any[];
+  playStatus: boolean;
 };
 
 type State = {

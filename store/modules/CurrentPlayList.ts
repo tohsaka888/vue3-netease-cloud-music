@@ -18,15 +18,26 @@ const mutations: MutationTree<PlaylistState> = {
   setCurrentPlaylistInfo(state, payload: { playlist: Playlist }) {
     state.currentPlaylistInfo = payload.playlist;
   },
+  setPlayStatus(state, payload: { id: number }) {
+    state.currentPlaylistInfo.tracks.forEach((song) => {
+      if (song.id === payload.id) {
+        song.playStatus = !song.playStatus;
+        return false;
+      }
+    });
+  },
 };
 
 // actions
 const actions: ActionTree<PlaylistState, RootState> = {
   async getCurrentPlaylistInfo(
     { commit },
-    {id, options}: { id: number; options?: RequestInit }
+    { id, options }: { id: number; options?: RequestInit }
   ) {
-    const res = await fetch(`${baseUrl}/playlist/detail?id=${id}${realIP}`, options);
+    const res = await fetch(
+      `${baseUrl}/playlist/detail?id=${id}${realIP}`,
+      options
+    );
     const data: { code: number; playlist: Playlist } = await res.json();
     if (data.code === 200) {
       commit({ type: "setCurrentPlaylistInfo", playlist: data.playlist });
