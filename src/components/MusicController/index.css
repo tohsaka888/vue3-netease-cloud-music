@@ -1,0 +1,88 @@
+.flex {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+}
+
+.slider {
+  flex: 15;
+  padding: 0px 12px;
+}
+
+.icon-area {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: transparent;
+}
+
+.icon-style {
+  font-size: 30px;
+  color: rgb(253, 139, 131);
+  box-shadow: 0px 0px 18px 1px rgb(255, 180, 180);
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.song-info {
+  flex: 4;
+  display: flex;
+  align-items: center;
+}
+
+.picture {
+  width: 80px;
+  min-width: 80px;
+}
+
+.xxl-picture {
+  width: 70px;
+  min-width: 70px;
+}
+
+.xl-picture {
+  width: 65px;
+  min-width: 65px;
+}
+
+.lg-picture {
+  width: 60px;
+  min-width: 60px;
+}
+
+.picture-main {
+  aspect-ratio: 1/1;
+  box-shadow: 2px 1px 15px 5px #999999;
+}
+
+.info-text {
+  margin-left: 16px;
+}
+
+#music-name {
+  font-size: 1.1rem;
+}
+
+#music-name-main {
+  height: 42px;
+  max-height: 42px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#xxl-music-name {
+  font-size: 1rem;
+}
+
+#xl-music-name {
+  font-size: 15px;
+}
+
+#lg-music-name {
+  font-size: 14px;
+}
+
+#artist {
+  font-size: 0.8rem;
+}
