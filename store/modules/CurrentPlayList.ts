@@ -22,7 +22,8 @@ const mutations: MutationTree<PlaylistState> = {
     state.currentPlaylistInfo.tracks.forEach((song) => {
       if (song.id === payload.id) {
         song.playStatus = !song.playStatus;
-        return false;
+      } else {
+        song.playStatus = false;
       }
     });
   },
