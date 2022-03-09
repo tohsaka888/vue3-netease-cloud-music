@@ -1,19 +1,36 @@
 <template>
   <div class="container">
-    <div>111</div>
+    <el-menu mode="horizontal" style="flex: 1;">
+      <el-menu-item
+        v-for="(item, index) in items"
+        :index="index.toString()"
+        @click="navigateTo(item.route)"
+      >{{ item.name }}</el-menu-item>
+    </el-menu>
   </div>
 </template>
   
 <script setup lang='ts'>
+import { useRouter } from 'vue-router';
+import items from './Items';
+
+const router = useRouter()
+
+const navigateTo = (route: string) => {
+  router.push(route)
+}
+
 
 </script>
   
-<style>
+<style scoped>
 .container {
-  height: 60px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: black;
+  height: 60px;
+  position: fixed;
+  top: 0px;
+  width: 300px;
+  min-width: 300px;
+  z-index: 100;
 }
 </style>
