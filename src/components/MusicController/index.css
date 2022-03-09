@@ -1,13 +1,12 @@
 .flex {
   display: flex;
   align-items: center;
-  padding: 8px;
 }
 
 .music-controller {
   background-color: white;
   box-shadow: 0px 0px 10px 2px #cecece;
-  padding: 8px 16px;
+  padding: 8px 0px;
 }
 
 .slider {
@@ -90,6 +89,7 @@
 .picture-main {
   aspect-ratio: 1/1;
   box-shadow: 2px 1px 15px 5px #999999;
+  margin-left: 16px;
 }
 
 .info-text {
@@ -127,4 +127,10 @@
 
 #artist {
   font-size: 0.8rem;
+}
+
+.container {
+  position: absolute;
+  width: inherit;
+  bottom: 0px;
 }
