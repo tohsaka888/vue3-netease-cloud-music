@@ -2,13 +2,12 @@
   <audio
     :src="currentMusicInfo.url"
     autoplay
-    controls
     @play="onPlay"
     ref="audioRef"
     @pause="onPause"
     @canplay="onCanPlay"
   />
-  <div class="flex music-controller">
+  <div class="flex music-controller container">
     <div class="song-info">
       <el-image
         :src="currentMusicInfo.al?.picUrl"
@@ -60,12 +59,13 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, reactive, ref, toRef } from "vue";
+import { reactive, ref, toRef } from "vue";
 import { useStore } from "vuex";
 import { Controller, State } from "../../../store/types";
 import { PlayCircleOutlined, PauseCircleOutlined, LeftCircleOutlined, RightCircleOutlined } from '@ant-design/icons-vue'
 import { breakpointsTailwind, useBreakpoints } from '@vueuse/core'
 import './index.css'
+import { reactiveStyle } from './reactiveStyle'
 import MultiEllipsis from "../custom/MultiEllipsis.vue";
 import Ellipsis from "../custom/Ellipsis.vue";
 
@@ -74,9 +74,6 @@ const breakpoints = useBreakpoints(breakpointsTailwind)
 const sm = breakpoints.smaller('sm')
 const md = breakpoints.between('sm', 'md')
 const lg = breakpoints.between('md', 'lg')
-const xl = breakpoints.between('lg', 'xl')
-const xxl = breakpoints.between('xl', '2xl')
-const xxxl = breakpoints['2xl']
 
 const audioRef = ref<HTMLAudioElement>()
 const intervalId = ref<number>()
@@ -151,45 +148,5 @@ const changePlayStatus = () => {
   }
 }
 
-/**
- * 响应式样式
- * @param {any} (
- * @returns {any}
- */
-const reactiveStyle = computed(() => {
-  let iconArea = ''
-  let picture = ''
-  let slider = ''
-  if (xxxl.value) {
-    iconArea = 'music-name'
-    picture = 'picture'
-    slider = 'slider'
-  } else if (xxl.value) {
-    iconArea = 'xxl-music-name'
-    picture = 'xxl-picture'
-    slider = 'xxl-slider'
-  } else if (xl.value) {
-    iconArea = 'xl-music-name'
-    picture = 'xl-picture'
-    slider = 'xl-slider'
-  } else if (lg.value) {
-    iconArea = 'lg-music-name'
-    picture = 'lg-picture'
-    slider = 'lg-slider'
-  } else if (md.value) {
-    iconArea = 'md-music-name'
-    picture = 'md-picture'
-    slider = 'md-slider'
-  } else if (sm.value) {
-    iconArea = 'sm-music-name'
-    picture = 'sm-picture'
-    slider = 'sm-slider'
-  }
-  return {
-    iconArea,
-    picture,
-    slider
-  }
-})
 
 </script>
