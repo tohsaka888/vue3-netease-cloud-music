@@ -9,6 +9,14 @@ const store = createStore({
     currentPlaylist,
     controller,
   },
+  state: {
+    tableLoading: false,
+  },
+  mutations: {
+    setTableLoading(state, { tableLoading }: { tableLoading: boolean }) {
+      state.tableLoading = tableLoading;
+    },
+  },
 });
 
 export default store;

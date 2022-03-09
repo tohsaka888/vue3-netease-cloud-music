@@ -1,15 +1,51 @@
 <script setup lang="ts">
+import { computed } from 'vue';
 import MusicController from './components/MusicController/index.vue';
+import Navbar from './components/Navbar/index.vue';
+const reactiveStyle = computed(() => {
 
+})
 </script>
 
 <template>
-  <router-view />
-  <MusicController />
+  <div class="main-container">
+    <div class="main-flex">
+      <Sider />
+      <div class="router-view">
+        <Navbar />
+        <div class="route">
+          <router-view />
+        </div>
+      </div>
+    </div>
+    <MusicController />
+  </div>
 </template>
 
 <style>
 html body {
   margin: 0px;
+  overflow-x: hidden;
+}
+
+.main-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.main-flex {
+  display: flex;
+  width: 100%;
+}
+
+.router-view {
+  padding: 16px 32px 0px 0px;
+  width: 82vw;
+}
+
+.route {
+  margin-top: 60px;
+  margin-bottom: 120px;
 }
 </style>

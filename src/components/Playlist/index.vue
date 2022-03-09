@@ -1,12 +1,19 @@
 <template>
-  <div class="flex" style="justify-content: flex-start;">
+  <div class="flex" style="justify-content: flex-start;margin-bottom: 24px;">
     <el-image class="playlist-cover" :src="playlist.coverImgUrl" />
     <div class="playlist-info">
       <h1>{{ playlist.name }}</h1>
       <h5>{{ playlist.id }}</h5>
     </div>
   </div>
-  <el-table :data="playlist.tracks" stripe :row-key="row => row.id" border>
+  <el-table
+    :data="playlist.tracks"
+    stripe
+    :row-key="row => row.id"
+    border
+    v-loading="tableLoading"
+    element-loading-background="rgba(f, f, f, 0.01)"
+  >
     <el-table-column type="index" label="序号" width="100">
       <template #default="{ row, $index }">
         <div class="flex">
@@ -45,9 +52,9 @@
   
 <script setup lang='ts'>
 import moment from 'moment'
-import { toRef } from 'vue';
+import { reactive, ref, toRef } from 'vue';
 import { useStore } from 'vuex';
-import { Music, PlaylistState, State } from '../../../store/types';
+import { Music, PlaylistState, RootState, State } from '../../../store/types';
 import Ellipsis from '../custom/Ellipsis.vue';
 import { VideoPlay, VideoPause } from '@element-plus/icons-vue'
 
@@ -56,6 +63,7 @@ const store = useStore()
 store.dispatch({ type: 'currentPlaylist/getCurrentPlaylistInfo', id: 7165353697, options: { mode: 'cors' } })
 const playlist = toRef<PlaylistState, keyof (PlaylistState)>(store.state.currentPlaylist, "currentPlaylistInfo")
 const currentMusicInfo = toRef<State, keyof (State)>(store.state.currentMusic, 'currentMusicInfo')
+const tableLoading = toRef<RootState, keyof (RootState)>(store.state, 'tableLoading')
 
 const getArtistsName = (artists: { name: string }[]) => {
   let arr: string[] = []
@@ -67,6 +75,7 @@ const getArtistsName = (artists: { name: string }[]) => {
 
 const playMusic = async (song: Music) => {
   if (currentMusicInfo.value.id !== song.id) {
+    store.commit({ type: 'setTableLoading', tableLoading: true })
     await store.dispatch({
       type: "currentMusic/getCurrentMusicUrl",
       id: song.id,
@@ -83,6 +92,7 @@ const playMusic = async (song: Music) => {
     // })
     store.commit({ type: 'currentMusic/setCurrentMusicInfo', song })
     store.commit({ type: 'currentPlaylist/setPlayStatus', id: song.id })
+    store.commit({ type: 'setTableLoading', tableLoading: false })
   }
 }
 
