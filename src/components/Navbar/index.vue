@@ -29,8 +29,7 @@ const navigateTo = (route: string) => {
   height: 60px;
   position: fixed;
   top: 0px;
-  width: 300px;
-  min-width: 300px;
+  width: 100%;
   z-index: 100;
 }
 </style>
