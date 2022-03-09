@@ -5,6 +5,7 @@
 declare module 'vue' {
   export interface GlobalComponents {
     ElAffix: typeof import('element-plus/es')['ElAffix']
+    ElButton: typeof import('element-plus/es')['ElButton']
     ElIcon: typeof import('element-plus/es')['ElIcon']
     ElImage: typeof import('element-plus/es')['ElImage']
     Ellipsis: typeof import('./src/components/custom/Ellipsis.vue')['default']
@@ -13,6 +14,7 @@ declare module 'vue' {
     ElSlider: typeof import('element-plus/es')['ElSlider']
     ElTable: typeof import('element-plus/es')['ElTable']
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
+    ElTag: typeof import('element-plus/es')['ElTag']
     HomePage: typeof import('./src/components/HomePage/index.vue')['default']
     Loading: typeof import('element-plus/es')['ElLoadingDirective']
     MultiEllipsis: typeof import('./src/components/custom/MultiEllipsis.vue')['default']
