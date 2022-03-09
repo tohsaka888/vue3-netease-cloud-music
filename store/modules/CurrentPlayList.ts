@@ -10,6 +10,10 @@ const state: PlaylistState = {
     tracks: [],
     tags: [],
     coverImgUrl: "",
+    createTime: 0,
+    updateTime: 0,
+    creator: { nickname: "游客", avatarUrl: "" },
+    description: null,
   },
 };
 

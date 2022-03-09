@@ -17,6 +17,10 @@ type Playlist = {
   tracks: Music[];
   tags: string[];
   id: number;
+  description: string | null;
+  creator: { avatarUrl: string; nickname: string };
+  createTime: number;
+  updateTime: number;
 };
 
 type PlaylistState = {
