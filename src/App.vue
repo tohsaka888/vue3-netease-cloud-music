@@ -40,8 +40,13 @@ html body {
 }
 
 .router-view {
-  padding: 16px 32px 0px 0px;
+  padding: 16px 0px 0px 0px;
   width: 82vw;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  overflow: auto;
+  right: 0px;
 }
 
 .route {
