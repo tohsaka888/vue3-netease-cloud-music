@@ -8,6 +8,8 @@ declare module 'vue' {
     ElIcon: typeof import('element-plus/es')['ElIcon']
     ElImage: typeof import('element-plus/es')['ElImage']
     Ellipsis: typeof import('./src/components/custom/Ellipsis.vue')['default']
+    ElMenu: typeof import('element-plus/es')['ElMenu']
+    ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
     ElSlider: typeof import('element-plus/es')['ElSlider']
     ElTable: typeof import('element-plus/es')['ElTable']
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
@@ -19,6 +21,7 @@ declare module 'vue' {
     Navbar: typeof import('./src/components/Navbar/index.vue')['default']
     Playlist: typeof import('./src/components/Playlist/index.vue')['default']
     ReactiveStyle: typeof import('./src/components/MusicController/reactiveStyle.vue')['default']
+    Sider: typeof import('./src/components/Sider/index.vue')['default']
   }
 }
 
