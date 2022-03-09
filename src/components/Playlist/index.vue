@@ -1,5 +1,5 @@
 <template>
-  <div class="flex" style="justify-content: flex-start;">
+  <div class="flex" style="justify-content: flex-start;margin-bottom: 24px;">
     <el-image class="playlist-cover" :src="playlist.coverImgUrl" />
     <div class="playlist-info">
       <h1>{{ playlist.name }}</h1>
