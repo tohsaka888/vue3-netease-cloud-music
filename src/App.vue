@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { computed } from 'vue';
 import MusicController from './components/MusicController/index.vue';
 import Navbar from './components/Navbar/index.vue';
 import reactiveStyle from './reactiveStyle';
