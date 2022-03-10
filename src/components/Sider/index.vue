@@ -1,5 +1,5 @@
 <template>
-  <div class="sider" v-if="!loginStatus">
+  <div class="sider" :class="reactiveStyle.width" v-if="!loginStatus">
     <div class="center" style="margin-top: 24px;">
       <el-image src="https://p.qqan.com/up/2021-2/16137992359659254.jpg" class="avatar" />
     </div>
@@ -40,37 +40,9 @@
 <script setup lang='ts'>
 import { ref } from 'vue';
 import { SettingOutlined } from '@ant-design/icons-vue'
+import reactiveStyle from './reactiveStyle';
+import './index.css'
 
 const loginStatus = ref<boolean>(false)
+
 </script>
-  
-<style scoped>
-.sider {
-  width: 18vw;
-  height: 100vh;
-  position: fixed;
-  left: 0px;
-  box-shadow: 0px 0px 10px 2px #cecece;
-  margin-right: 26px;
-  z-index: 200;
-  min-width: 140px;
-}
-
-.avatar {
-  width: 80px;
-  aspect-ratio: 1/1;
-  border-radius: 50%;
-  box-shadow: 0px 0px 10px 2px #cecece;
-}
-
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.text-center {
-  text-align: center;
-  width: 100%;
-}
-</style>

@@ -1,9 +1,9 @@
 <template>
   <div class="container">
-    <el-menu mode="horizontal" style="flex: 1;">
+    <el-menu mode="horizontal" style="flex: 1;" :default-active="route.path">
       <el-menu-item
-        v-for="(item, index) in items"
-        :index="index.toString()"
+        v-for="item in items"
+        :index="item.route"
         @click="navigateTo(item.route)"
       >{{ item.name }}</el-menu-item>
     </el-menu>
@@ -11,10 +11,11 @@
 </template>
   
 <script setup lang='ts'>
-import { useRouter } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import items from './Items';
 
 const router = useRouter()
+const route = useRoute()
 
 const navigateTo = (route: string) => {
   router.push(route)

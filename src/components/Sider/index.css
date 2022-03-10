@@ -1,0 +1,38 @@
+.large-width {
+  width: 18vw;
+}
+
+.middle-width {
+  width: 8vw;
+}
+
+.small-width {
+  display: none;
+}
+
+.sider {
+  height: 100vh;
+  position: fixed;
+  left: 0px;
+  box-shadow: 0px 0px 10px 2px #cecece;
+  margin-right: 26px;
+  z-index: 200;
+}
+
+.avatar {
+  width: 80px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px 2px #cecece;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-center {
+  text-align: center;
+  width: 100%;
+}

@@ -6,6 +6,8 @@ declare module 'vue' {
   export interface GlobalComponents {
     ElAffix: typeof import('element-plus/es')['ElAffix']
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElCarousel: typeof import('element-plus/es')['ElCarousel']
+    ElCarouselItem: typeof import('element-plus/es')['ElCarouselItem']
     ElIcon: typeof import('element-plus/es')['ElIcon']
     ElImage: typeof import('element-plus/es')['ElImage']
     Ellipsis: typeof import('./src/components/custom/Ellipsis.vue')['default']
@@ -23,6 +25,8 @@ declare module 'vue' {
     Navbar: typeof import('./src/components/Navbar/index.vue')['default']
     Playlist: typeof import('./src/components/Playlist/index.vue')['default']
     ReactiveStyle: typeof import('./src/components/MusicController/reactiveStyle.vue')['default']
+    RecommendMusic: typeof import('./src/components/HomePage/RecommendMusic.vue')['default']
+    RecommendPlaylist: typeof import('./src/components/HomePage/RecommendPlaylist.vue')['default']
     Sider: typeof import('./src/components/Sider/index.vue')['default']
   }
 }

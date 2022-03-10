@@ -61,7 +61,7 @@
   
 <script setup lang='ts'>
 import moment from 'moment'
-import { reactive, ref, toRef } from 'vue';
+import { toRef } from 'vue';
 import { useStore } from 'vuex';
 import { Music, PlaylistState, RootState, State } from '../../../store/types';
 import Ellipsis from '../custom/Ellipsis.vue';
@@ -131,6 +131,7 @@ const playMusic = async (song: Music) => {
   aspect-ratio: 1/1;
   min-width: 40px;
   border-radius: 50%;
+  margin-right: 8px;
 }
 
 .creator {
@@ -141,6 +142,6 @@ const playMusic = async (song: Music) => {
 
 .title {
   font-size: 1.8rem;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 </style>

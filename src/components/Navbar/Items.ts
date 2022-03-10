@@ -10,11 +10,11 @@ const items: Items = [
   },
   {
     name: "歌单",
-    route: "playlist",
+    route: "/playlist",
   },
   {
     name: "我的",
-    route: "my",
+    route: "/my",
   },
 ];
 
