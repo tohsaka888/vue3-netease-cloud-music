@@ -47,6 +47,7 @@ html body {
   bottom: 0;
   overflow: auto;
   right: 0px;
+  min-width: 640px;
 }
 
 .route {
