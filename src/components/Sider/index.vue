@@ -53,6 +53,7 @@ const loginStatus = ref<boolean>(false)
   box-shadow: 0px 0px 10px 2px #cecece;
   margin-right: 26px;
   z-index: 200;
+  min-width: 140px;
 }
 
 .avatar {
