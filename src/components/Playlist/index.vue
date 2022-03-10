@@ -131,6 +131,7 @@ const playMusic = async (song: Music) => {
   aspect-ratio: 1/1;
   min-width: 40px;
   border-radius: 50%;
+  margin-right: 8px;
 }
 
 .creator {
@@ -141,6 +142,6 @@ const playMusic = async (song: Music) => {
 
 .title {
   font-size: 1.8rem;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 </style>
