@@ -26,7 +26,7 @@
     "@vitejs/plugin-vue": "^2.2.0",
     "electron": "^17.2.0",
     "typescript": "^4.5.4",
-    "vite": "^2.8.0",
+    "vite": "^2.9.13",
     "vue-tsc": "^0.29.8"
   }
 }
